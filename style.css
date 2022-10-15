@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.calcBody{
+    border: 2px solid black;
+}
+.screen{
+    display: flex;
+    margin: 8px;
+    padding: 10px;
+    border-radius: 10%;
+    border: black 5px solid;
+    height: 5vh;
+    width: 35vh;
+  
+}
+.calcButtons{
+   
+    border: 2px solid black;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 35vh;
+    height: 5vh;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+button{
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    margin:4px;
+    width: 5vh;
+    height: 5vh;
+}
