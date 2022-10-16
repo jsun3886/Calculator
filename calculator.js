@@ -15,3 +15,22 @@ function addToScreen(){
     console.log(workingScreen.textContent);
     workingScreen.textContent+= this.textContent;
 }
+
+
+
+operationButtons= document.querySelectorAll('.operationButton');
+operationButtons.forEach(operation=>{
+    operation.addEventListener('click',addOperation)
+});
+var operationSelected=false;
+var currentOperation =''
+
+function addOperation(){
+    if(!operationSelected && workingScreen.childNodes.length!=0){
+        workingScreen.textContent+=` ${this.textContent} `;
+        operationSelected=true;
+        currentOperation=this.textContent;
+    }
+}
+
+

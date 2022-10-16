@@ -8,7 +8,9 @@ body{
     border: 2px solid black;
 }
 .screen{
-    display: flex;
+    
+    
+    text-align: right;
     margin: 8px;
     padding: 10px;
     border-radius: 10%;
