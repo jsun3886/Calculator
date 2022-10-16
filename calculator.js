@@ -43,6 +43,7 @@ var splitPattern = /[\s()x/%+-]+/g;
 function calculateOperation(){
     const numbers = workingScreen.textContent.split(splitPattern);
     console.log(numbers);
+    if (isNaN(parseFloat(numbers[1]))){return}
     switch(currentOperation){
         case('+'):
         answerScreen.textContent=parseFloat(numbers[0])+parseFloat(numbers[1]);
@@ -59,6 +60,16 @@ function calculateOperation(){
 
 
     }
+    operationSelected=false;
+    workingScreen.replaceChildren();
+}
+
+clearButton = document.querySelector('.clearButton');
+clearButton.addEventListener('click',clearworkingScreen)
+
+function clearworkingScreen(){
+    workingScreen.replaceChildren();
+    operationSelected=false;
 }
 
 
