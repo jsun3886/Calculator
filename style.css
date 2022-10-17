@@ -19,6 +19,12 @@ body{
     width: 35vh;
   
 }
+.answer{
+    height:2vh;
+}
+.workingSpace{
+    height:3vh;
+}
 .calcButtons{
    
     border: 2px solid black;
