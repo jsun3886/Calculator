@@ -76,6 +76,8 @@ clearButton.addEventListener('click',clearworkingScreen)
 function clearworkingScreen(){
     workingScreen.replaceChildren();
     operationSelected=false;
+    firstNumberDecimal=false;
+    secondNumberDecimal=false;
 }
 
 
