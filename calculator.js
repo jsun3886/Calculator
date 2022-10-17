@@ -27,7 +27,7 @@ var currentOperation =''
 
 function addOperation(){
     if(!operationSelected && workingScreen.childNodes.length!=0){
-        workingScreen.textContent+=` ${this.textContent} `;
+        workingScreen.textContent+=`${this.textContent}`;
         operationSelected=true;
         currentOperation=this.textContent;
     }
@@ -37,8 +37,8 @@ function addOperation(){
 
 equalButton= document.querySelector('.equalButton');
 equalButton.addEventListener('click',calculateOperation);
-var matchPattern = /[^\s()*/%+-]+/g;  
-var splitPattern = /[\s()x/%+-]+/g;  
+
+var splitPattern = /[\s()x/%+^-]+/g;  
 
 function calculateOperation(){
     const numbers = workingScreen.textContent.split(splitPattern);
@@ -57,6 +57,10 @@ function calculateOperation(){
         case('/'):
         answerScreen.textContent=parseFloat(numbers[0])/parseFloat(numbers[1]);
         break;
+        case('^'):
+        answerScreen.textContent=Math.pow(parseFloat(numbers[0]),parseFloat(numbers[1]));
+        break;
+
 
 
     }
@@ -72,4 +76,9 @@ function clearworkingScreen(){
     operationSelected=false;
 }
 
+
+deleteButton= document.querySelector('.deleteButton');
+deleteButton.addEventListener('click',()=>{
+    if(workingScreen.childNodes.length!=0){ workingScreen.textContent=workingScreen.textContent.slice(0,-1);}
+})
 
