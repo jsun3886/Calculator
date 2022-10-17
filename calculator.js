@@ -30,7 +30,13 @@ function addOperation(){
         workingScreen.textContent+=`${this.textContent}`;
         operationSelected=true;
         currentOperation=this.textContent;
+    }else if(!operationSelected && answerScreen.childNodes.length!=0){
+        workingScreen.textContent=answerScreen.textContent+this.textContent;
+        if (answerScreen.textContent.indexOf('.')>-1){firstNumberDecimal=true;}
+        operationSelected=true;
+        currentOperation=this.textContent;
     }
+
 
 }
 
