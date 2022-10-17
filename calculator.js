@@ -65,6 +65,8 @@ function calculateOperation(){
 
     }
     operationSelected=false;
+    firstNumberDecimal=false;
+    secondNumberDecimal=false;
     workingScreen.replaceChildren();
 }
 
@@ -79,6 +81,29 @@ function clearworkingScreen(){
 
 deleteButton= document.querySelector('.deleteButton');
 deleteButton.addEventListener('click',()=>{
-    if(workingScreen.childNodes.length!=0){ workingScreen.textContent=workingScreen.textContent.slice(0,-1);}
+    if(workingScreen.childNodes.length!=0){ 
+        removedCharacter= workingScreen.textContent.slice(-2,-1);
+        if(removedCharacter==='+' || removedCharacter==='-' || removedCharacter==='/' || removedCharacter==='x' || removedCharacter==='^'){operationSelected=false;}
+        if(removedCharacter==='.' && secondNumberDecimal){
+            secondNumberDecimal=false;
+        }else{ firstNumberDecimal=false;}
+        console.log(removedCharacter);
+        workingScreen.textContent=workingScreen.textContent.slice(0,-1);}
 })
 
+
+decimalButton = document.querySelector('.decimalButton');
+decimalButton.addEventListener('click', addDecimal);
+var firstNumberDecimal=false;
+var secondNumberDecimal=false;
+function addDecimal(){
+    if(!firstNumberDecimal && !operationSelected ){
+        workingScreen.textContent+='.'
+        firstNumberDecimal=true;
+    }
+    if(operationSelected && !secondNumberDecimal){
+        workingScreen.textContent+='.'
+        secondNumberDecimal=true;
+    }
+
+}
